@@ -105,11 +105,9 @@ var data = [
     }
 ]
 
-if(resourceUrl){
-    ajax(resourceUrl, function(str){
-        contentDom.innerHTML = marked(str);
-    })
-}
+ajax(resourceUrl || 'README.md', function(str){
+    contentDom.innerHTML = marked(str);
+})
 
 function debounce(idle, action){
     var last
