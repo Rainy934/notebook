@@ -1,3 +1,4 @@
+## HTML5 EventSource 调研
 ### 应用场景
 1. 监控系统： 监控温度，湿度， 后台硬件拔插等
 2. 即时通信系统： 其他用户登录， 发送信息
@@ -12,67 +13,68 @@ web 基于Http，可惜Http并不是一个持久连接的协议（信息传递�
 
 ### HTML5 api demo
 index.html
-```
-<!DOCTYPE html>
-<html>
-<head>
-    <title>EventSource</title>
-</head>
-<body>
-<h1>测试EventSource</h1>
 
-<script type="text/javascript">
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>EventSource</title>
+    </head>
+    <body>
+    <h1>测试EventSource</h1>
 
-    var evtSource = new EventSource("/sendMessage");
-    evtSource.onmessage = function (e) {
-        console.log(e.data);
-    }
-    //成功与服务器发生连接时触发
-    evtSource.onopen = function () {
-        console.log("Server open")
-    } 
-    //出现错误时触发
-    evtSource.onerror = function () {
-        console.log("Error")
-    } 
+    <script type="text/javascript">
 
-    //自定义事件
-    evtSource.addEventListener("myEvent", function (e) {
-        console.log(e.data);
-    }, false)
-</script>
+        var evtSource = new EventSource("/sendMessage");
+        evtSource.onmessage = function (e) {
+            console.log(e.data);
+        }
+        //成功与服务器发生连接时触发
+        evtSource.onopen = function () {
+            console.log("Server open")
+        } 
+        //出现错误时触发
+        evtSource.onerror = function () {
+            console.log("Error")
+        } 
 
-</body>
-</html>
-```
+        //自定义事件
+        evtSource.addEventListener("myEvent", function (e) {
+            console.log(e.data);
+        }, false)
+    </script>
+
+    </body>
+    </html>
+
 
 server.js
-```
-var http = require('http');
-var fs = require('fs');
 
-http.createServer(function (req, res) {
-    if(req.url === '/sendMessage') {
-        res.writeHead(200, {
-            "Content-Type": "text/event-stream"
-        });
 
-        setInterval(function () {
-            res.write(
-                "data:" + new Date().toLocaleTimeString() + "\n\n" +
-                ": '这是注释！'" + "\n" +
-                "event: myEvent" + "\n" + 
-                "data:" + new Date().toLocaleString() + "\n\n"
-            );
-        }, 1000);
-    }
-    if(req.url === '/index') {
-        fs.readFile('./index.html', function (err, content) {
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end(content, 'utf-8');
-        });
-    }
-}).listen(3000);
-```
+    var http = require('http');
+    var fs = require('fs');
+
+    http.createServer(function (req, res) {
+        if(req.url === '/sendMessage') {
+            res.writeHead(200, {
+                "Content-Type": "text/event-stream"
+            });
+
+            setInterval(function () {
+                res.write(
+                    "data:" + new Date().toLocaleTimeString() + "\n\n" +
+                    ": '这是注释！'" + "\n" +
+                    "event: myEvent" + "\n" + 
+                    "data:" + new Date().toLocaleString() + "\n\n"
+                );
+            }, 1000);
+        }
+        if(req.url === '/index') {
+            fs.readFile('./index.html', function (err, content) {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end(content, 'utf-8');
+            });
+        }
+    }).listen(3000);
+
 
 

@@ -1,4 +1,4 @@
-本文基于Express4.x的源码。
+## Express本质
 #### app是什么
     var app = express();
     app.listen(3000)

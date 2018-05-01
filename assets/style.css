@@ -1,0 +1,123 @@
+body {
+    font-size: 14px;
+}
+
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 14px Arial;
+}
+
+.book {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.book .book-summary {
+    position: absolute;
+    width: 300px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #364149;
+    background: #fafafa;
+    border-right: 1px solid rgba(0,0,0,.07);
+}
+
+#book-search-input {
+    padding: 6px;
+    background: 0 0;
+    transition: top .5s ease;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.07);
+    border-top: 1px solid rgba(0,0,0,.07);
+    margin-bottom: 10px;
+    margin-top: -1px;
+}
+
+.book-summary ul.summary {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: top .5s ease;
+    -moz-transition: top .5s ease;
+    -o-transition: top .5s ease;
+    transition: top .5s ease;
+}
+
+.book-summary ul.summary li {
+    list-style: none;
+}
+
+.book-summary ul.summary li span {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: none;
+    color: #364149;
+    background: 0 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.book-summary  a {
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+.book-summary ul.summary li ul {
+    padding-left: 20px;
+}
+
+#book-search-input input, #book-search-input input:focus, #book-search-input input:hover {
+    width: 100%;
+    background: 0 0;
+    border: 1px solid transparent;
+    box-shadow: none;
+    outline: 0;
+    line-height: 22px;
+    padding: 7px 7px;
+    color: inherit;
+}
+
+
+.book .book-body {
+    position: absolute;
+    left: 300px;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    margin: 0 auto;
+    padding: 20px 15px 40px 15px;
+}
+
+.book .book-body section {
+    font-size: 18px;
+    font-family: Georgia, serif;
+}
+
+.markdown-section {
+    display: block;
+    word-wrap: break-word;
+    overflow: hidden;
+    color: #333;
+    line-height: 1.7;
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+}
+
