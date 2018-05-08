@@ -102,6 +102,10 @@ var data = [
     {
         title: 'Google 翻译文本转语音接口',
         url: 'google_translate_voice.md'
+    },
+    {
+        title: '静态服务器简单编程',
+        url: 'static_server.md'
     }
 ]
 
