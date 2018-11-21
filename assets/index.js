@@ -101,6 +101,15 @@ var data = [
         ]
     },
     {
+        bookName: 'Linux',
+        articles: [
+            {
+                title: '常识性入门',
+                url: 'linux/chapter1.md'
+            }
+        ]
+    },
+    {
         title: '正则表达式', 
         url: 'regexp/2017-12-25.md'
     },
