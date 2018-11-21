@@ -105,7 +105,7 @@ var data = [
         articles: [
             {
                 title: '常识性入门',
-                url: 'linux/chapter1.md'
+                url: 'linuxs/chapter1.md'
             }
         ]
     },
