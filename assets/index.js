@@ -140,7 +140,7 @@ var data = [
 ]
 
 ajax(resourceUrl || 'README.md', function(str){
-    contentDom.innerHTML = marked(str);
+    contentDom.innerHTML = marked.parse(str);
 })
 
 function debounce(idle, action){
